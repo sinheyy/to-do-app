@@ -15,7 +15,7 @@ app.use("/api", indexRouter);
 const mongoURI = MONGODB_URI_PROD;
 
 mongoose
-    .connect(mongoURI, { useNewUrlParser: true })
+    .connect(mongoURI)
     .then(() => {
         console.log("mongoose connected");
     })

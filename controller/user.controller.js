@@ -1,5 +1,5 @@
 const User = require("../model/User");
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const saltRounds = 10;
 
 const userController = {};
@@ -42,8 +42,7 @@ userController.loginWithEmail = async (req, res) => {
 
         throw new Error("아이디 또는 비밀번호가 일치하지 않습니다.");
     } catch (error) {
-        res.status(400).json({ status: "fail", error });
-        console.log(error);
+        res.status(400).json({ status: "fail", message:error.message });
     }
 }
 
